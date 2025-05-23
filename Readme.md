@@ -3,7 +3,7 @@
 This project is created for educational and research purposes only. It is intended to demonstrate potential security risks associated with browser autofill features and raise awareness about web security best practices.
 
 ## Demo
-<video controls src="AutoFill_Demo.mp4" title="Autofill Phishing Demo Video"></video>
+<img src="./AutoFill_Demo.gif" alt="AutoFill Phighin Demo Gif" width="700">
 
 ### Start a server: 
 ![alt text](python-server.png)
